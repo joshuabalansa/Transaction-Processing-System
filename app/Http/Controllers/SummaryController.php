@@ -9,7 +9,7 @@ class SummaryController extends Controller
 {
     public function index() {
 
-        $menus = Menu::all();
-        return view('components.dashboard', compact('menus'));
+        $menuCount = Menu::all()->count();
+        return view('components.dashboard', compact('menuCount'));
     }
 }

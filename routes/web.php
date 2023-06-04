@@ -46,5 +46,10 @@ Route::prefix('staff')->group(function() {
       Route::get('/', 'App\Http\Controllers\StaffController@index')->name('staff.index');
       Route::get('create', 'App\Http\Controllers\StaffController@create')->name('staff.create');
       Route::post('store', 'App\Http\Controllers\StaffController@store')->name('staff.store');
-      Route::post('destroy/{staff}', 'App\Http\Controllers\StaffController@destroy')->name('staff.destroy');
+      Route::get('destroy/{staff}', 'App\Http\Controllers\StaffController@destroy')->name('staff.destroy');
+});
+
+// User Route
+Route::get('user', function () {
+    return view('user.index');
 });
