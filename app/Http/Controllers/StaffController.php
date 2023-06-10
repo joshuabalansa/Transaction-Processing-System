@@ -30,16 +30,16 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'firstname' => 'required',
+            'firstname' => 'required|min:2',
             'middlename' => 'required',
-            'lastname' => 'required',
+            'lastname' => 'required|min:2',
             'address' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'birthdate' => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'birthdate' => 'required|date',
             'role' => 'required',
-            'salary' => 'required',
-            'emergency_number' => 'required',
+            'salary' => 'required|numeric',
+            'emergency_number' => 'nullable',
         ]);
 
         Staff::create($validate); 

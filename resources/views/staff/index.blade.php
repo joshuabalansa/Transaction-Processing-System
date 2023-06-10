@@ -88,6 +88,6 @@
     </center>
 </div>
 <div class="mt-2">
-  {{-- Pagination --}}
+  {{ $staffs->links('pagination::tailwind') }}
 </div>
 @endsection

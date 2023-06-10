@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('birthdate');
             $table->string('role');
             $table->decimal('salary', 8, 2);
-            $table->string('emergency_number');
+            $table->string('emergency_number')->nullable();
             $table->timestamps();
         });
     }
