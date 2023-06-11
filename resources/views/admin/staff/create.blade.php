@@ -101,8 +101,8 @@
     <select id="countries" name="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option selected value="">Choose a role</option>
       <option value="cashier">Cashier</option>
-      <option value="kichen">Kichen</option>
-      <option value="waiter">Waiter</option>
+      <option value="chef">Chef</option>
+      <option value="staff">Staff</option>
     </select>
       @error('role')
       <div class="flex mt-2 mb-4 text-sm text-red-800 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">

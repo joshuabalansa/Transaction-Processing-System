@@ -49,6 +49,11 @@ Route::prefix('staff')->group(function() {
       Route::get('destroy/{staff}', 'App\Http\Controllers\StaffController@destroy')->name('staff.destroy');
 });
 
+Route::prefix('customer')->group(function () {
+    Route::get('/', 'App\Http\Controllers\CustomerController@index')->name('customer.index');
+});
+
+
 // User Route
 Route::get('user', function () {
     return view('user.index');

@@ -13,7 +13,7 @@ class StockController extends Controller
     public function index()
     {
         $stocks = Stock::paginate(10);
-        return view('stocks.index', compact('stocks'));
+        return view('admin.stocks.index', compact('stocks'));
     }
 
     /**
@@ -22,7 +22,7 @@ class StockController extends Controller
     public function create()
     {
         
-        return view('stocks.create');
+        return view('admin.stocks.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class StockController extends Controller
     public function edit(Stock $stock)
     {
 
-        return view('stocks.edit', compact('stock'));
+        return view('admin.stocks.edit', compact('stock'));
     }
 
     /**

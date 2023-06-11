@@ -13,7 +13,7 @@ class StaffController extends Controller
     public function index()
     {
         $staffs = Staff::paginate(10);
-        return view('staff.index', compact('staffs'));
+        return view('admin.staff.index', compact('staffs'));
     }
 
     /**
@@ -21,7 +21,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('staff.create');
+        return view('admin.staff.create');
     }
 
     /**

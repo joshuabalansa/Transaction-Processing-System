@@ -13,7 +13,7 @@ class TableController extends Controller
     public function index()
     {
         $tables = Table::paginate('10');
-        return view('table.index', compact('tables'));
+        return view('admin.table.index', compact('tables'));
     }
 
     /**
@@ -22,7 +22,7 @@ class TableController extends Controller
     public function create()
     {
         
-        return view('table.create');
+        return view('admin.table.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class TableController extends Controller
      */
     public function edit(Table $table)
     {
-        return view('table.edit', compact('table'));
+        return view('admin.table.edit', compact('table'));
     }
 
     /**

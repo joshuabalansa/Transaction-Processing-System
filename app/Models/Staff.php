@@ -22,7 +22,7 @@ class Staff extends Model
         'emergency_number'
     ];
     public function getFullname() {
-        $fullname = $this->firstname . " " . $this->middlename . " " . $this->lastname;
+        $fullname = ucfirst($this->firstname) . " " . strtoupper($this->middlename[0]) . ", " . ucfirst($this->lastname);
         return $fullname;
     }
     public function getAddress() {
