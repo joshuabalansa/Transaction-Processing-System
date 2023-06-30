@@ -23,7 +23,41 @@ class Menu extends Model
         return $this->description;
     }
     public function getCategory() {
-        return $this->category;
+
+        $category = "";
+        switch($this->category) {
+            case 1:
+                $category = "Street Foods";
+                break;
+
+            case 2:
+                $category = "Burger and sandwitches";
+                break;
+
+            case 3:
+                $category = "Cold Drinks";
+                break;
+
+            case 4:
+                $category = "Hot Drinks";
+                break;
+
+            case 5:
+                $category = "Premuim Coffee";
+                break;
+
+            case 6:
+                $category = "Fruit Shakes";
+                break;
+
+            case 0:
+                $category = "Fruit Shakes";
+                break;
+
+            default:
+            break;
+        }
+       return $category;
     }
     public function getPrice() {
         return $this->price;

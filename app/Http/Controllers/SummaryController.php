@@ -17,6 +17,6 @@ class SummaryController extends Controller
         $staffCount = Staff::count();
         $tableCount = Table::count();
 
-        return view('components.dashboard', compact('menuCount', 'stocksCount', 'staffCount', 'tableCount'));
+        return view('admin.dashboard.dashboard', compact('menuCount', 'stocksCount', 'staffCount', 'tableCount'));
     }
 }

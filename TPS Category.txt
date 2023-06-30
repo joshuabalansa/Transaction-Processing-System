@@ -1,0 +1,40 @@
+foods
+	Streetfood platter 55
+	Classic nachos 80
+	Nachos Overload 120
+	Siomai 25
+	Tempura 25
+	Fishball 25
+	French Fries 45
+	Cheese sticks 45
+	Lumpianiza 45
+	
+
+Burger and sandwiches
+	Burger  85
+	Hotdog Sandwitch 50
+	Griiled cheese 45
+
+
+
+Hot drinks
+	brewed coffee / with milk 20 & 25
+	
+
+Premium coffee
+	sagada 50
+	excelsa 55
+	
+fruit shake
+	Green mango 70
+	Sweet mango 70
+
+
+Cold drinks
+	Iced choco 50
+	Iced Coffee 45
+	Iced tea 25
+	Lemonade 25
+	Milo Overload 60
+
+
