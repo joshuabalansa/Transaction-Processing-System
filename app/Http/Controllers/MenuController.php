@@ -31,20 +31,34 @@ class MenuController extends Controller
      * Store a newly created resource in menu.
      */
     public function store(Request $request)
-    {
-
-        $validate = $request->validate([
-            'name' => 'required:min:2',
+{
+        $validatedData = $request->validate([
+            'name' => 'required|min:2',
             'description' => 'required',
             'category' => 'required',
-            'price' => ['required', 'numeric']
+            'price' => ['required', 'numeric'],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Menu::create($validate);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $validatedData['image'] = $imageName;
+        } else {
+            $validatedData['image'] = null;
+        }
 
-        return redirect()->route('menu.index')->with('success', 'Item added successfully!');
-       
-    }
+        $menu = new Menu;
+        $menu->name = $validatedData['name'];
+        $menu->description = $validatedData['description'];
+        $menu->category = $validatedData['category'];
+        $menu->price = $validatedData['price'];
+        $menu->image = $validatedData['image'];
+        $menu->save();
+
+    return redirect()->route('menu.index')->with('success', 'Item added successfully!');
+}
 
     /**
      * Display the specified resource.
@@ -59,7 +73,8 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        return view('admin.menu.edit', compact('menu'));
+        $selectedCategory = $menu->category;
+        return view('admin.menu.edit', compact('menu', 'selectedCategory'));
     }
 
     /**
@@ -75,6 +90,7 @@ class MenuController extends Controller
         ]);
 
         $menu->update($validate);
+        
         return redirect()->route('menu.index')->with('info', $menu->name . ' Has beed updated');
     }
 
