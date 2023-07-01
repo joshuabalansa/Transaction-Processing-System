@@ -55,6 +55,4 @@ Route::prefix('customer')->group(function () {
 
 
 // User Route
-Route::get('user', function () {
-    return view('user.index');
-});
+Route::get('user', 'App\Http\Controllers\UserController@index')->name('user.index');
