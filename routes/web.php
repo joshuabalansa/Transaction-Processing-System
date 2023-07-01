@@ -54,5 +54,7 @@ Route::prefix('customer')->group(function () {
 });
 
 
-// User Route
-Route::get('user', 'App\Http\Controllers\UserController@index')->name('user.index');
+// Users Menu Route
+Route::get('user', 'App\Http\Controllers\UserMenuController@index')->name('user.index');
+
+Route::get('option1', 'App\Http\Controllers\UserMenuController@option1')->name('menu.option1');

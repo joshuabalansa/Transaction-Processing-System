@@ -84,7 +84,7 @@
             There is no item in the list
         </div>
         @endif
-    </center>
+    </center> 
 </div>
 <div class="mt-2">
   {{ $stocks->links('pagination::tailwind') }}

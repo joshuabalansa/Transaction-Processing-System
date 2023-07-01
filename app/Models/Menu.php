@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Menu extends Model
 {
@@ -19,8 +20,10 @@ class Menu extends Model
         $name = ucfirst($this->name);
         return $name;
     }
+    
     public function getDescription() {
-        return $this->description;
+        $limitedText = Str::words($this->description, 6, '...');
+        return $limitedText;
     }
     public function getCategory() {
 

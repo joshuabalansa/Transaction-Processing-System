@@ -88,7 +88,6 @@ class MenuController extends Controller
             'category' => 'required',
             'price' => ['required', 'numeric']
         ]);
-
         $menu->update($validate);
         
         return redirect()->route('menu.index')->with('info', $menu->name . ' Has beed updated');

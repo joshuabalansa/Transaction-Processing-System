@@ -3,11 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-
-class Table extends Component
+use App\Models\Menu;
+class UserMenu extends Component
 {
+
     public function render()
     {
-        return view('livewire.table');
+
+        return view('livewire.user-menu');
     }
+
 }
