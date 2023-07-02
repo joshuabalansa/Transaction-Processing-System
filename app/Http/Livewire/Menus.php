@@ -14,4 +14,8 @@ class Menus extends Component
         $this->menus = Menu::all();
         return view('livewire.menus');
     }
+
+    public function optionOne() {
+        dd("Testing wire click");
+    }
 }
