@@ -13,16 +13,12 @@ class UserMenuController extends Controller
         return view('user.menu', compact('menus'));
     }
 
-    public function selectedCategory($categoryId) {
+    public function selectedCategory(int $categoryId) {
         
-        if($categoryId == 0) {
-
-            $menus = Menu::all();
-        } else {
-
-            $menus = Menu::where('category', $categoryId)->get();
+        $menus = ($categoryId === 0) ? Menu::all() : Menu::where('category', $categoryId)->get();
+        if ($menus->isEmpty()) {
+            return view('user.menu', ['menus' => $menus, 'isEmpty' => true]);
         }
-
-        return view('user.menu', compact('menus'));
+        return view('user.menu', ['menus' => $menus, 'isEmpty' => false]);
     }
 }
