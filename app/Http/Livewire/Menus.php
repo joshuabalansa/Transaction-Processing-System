@@ -8,14 +8,19 @@ use App\Models\Menu;
 class Menus extends Component
 {
     public $menus = [];
+    
+
+    public function mount() {
+
+        $this->menus = Menu::all();
+    }
 
     public function render()
     {
-        $this->menus = Menu::all();
         return view('livewire.menus');
     }
 
-    public function optionOne() {
-        dd("Testing wire click");
+    public function optionOne($menuId) {
+        ($menuId);
     }
 }

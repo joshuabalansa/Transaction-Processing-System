@@ -2,13 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Index Controller
-Route::get('/', function () {
-    return view('layouts.app');
-});
-
 // Dashboard Controller
-Route::get('/dashboard', 'App\Http\Controllers\SummaryController@index')->name('dashboard');
+Route::get('/', 'App\Http\Controllers\SummaryController@index')->name('dashboard');
 
 //Menu Controllers
 Route::prefix('menu')->group(function() {
@@ -57,4 +52,4 @@ Route::prefix('customer')->group(function () {
 // Users Menu Route
 Route::get('user', 'App\Http\Controllers\UserMenuController@index')->name('user.index');
 
-Route::get('option1', 'App\Http\Controllers\UserMenuController@option1')->name('menu.option1');
+Route::get('selectedCategory/{categoryId}', 'App\Http\Controllers\UserMenuController@selectedCategory')->name('menu.selectedCategory');

@@ -9,12 +9,20 @@ class UserMenuController extends Controller
 {
     
     public function index() {
-    
-        return view('user.menu.index');
+        $menus = Menu::all();
+        return view('user.menu', compact('menus'));
     }
 
-    public function option1() {
+    public function selectedCategory($categoryId) {
         
-        return view('user.menu');
+        if($categoryId == 0) {
+
+            $menus = Menu::all();
+        } else {
+
+            $menus = Menu::where('category', $categoryId)->get();
+        }
+
+        return view('user.menu', compact('menus'));
     }
 }
