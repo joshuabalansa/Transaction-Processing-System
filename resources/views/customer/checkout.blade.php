@@ -1,5 +1,4 @@
-{{ $menu->getName() }} <br> 
-{{ $menu->getPrice() }} <br>
+@dump($menu)
 <br><br><br>
 Available Menus
 <br>

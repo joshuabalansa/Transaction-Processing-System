@@ -11,7 +11,7 @@ class CustomerController extends Controller
         $menus = Menu::all();
         if($menus->isEmpty()) {
 
-            return view('user.menu', ['menus' => $menus, 'isEmpty' => true]);
+            return view('customer.menu', ['menus' => $menus, 'isEmpty' => true]);
         }
         return view('customer.menu', ['menus' => $menus, 'isEmpty' => false]);
     }
