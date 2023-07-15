@@ -14,6 +14,11 @@ Route::prefix('menu')->group(function() {
     Route::put('update/{menu}', 'App\Http\Controllers\MenuController@update')->name('menu.update');
     Route::get('destroy/{menu}', 'App\Http\Controllers\MenuController@destroy')->name('menu.destroy');
 });
+// Menu Category Controller
+Route::prefix('category')->group(function() {
+    Route::get('/', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+});
+
 
 // Table Controller
 Route::prefix('table')->group(function () {
