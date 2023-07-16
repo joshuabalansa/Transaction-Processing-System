@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-
+// use Category;
 class Menu extends Model
 {
     use HasFactory;
@@ -26,41 +26,8 @@ class Menu extends Model
         return $limitedText;
     }
     public function getCategory() {
-
-        $category = "";
-        switch($this->category) {
-            case 1:
-                $category = "Street Foods";
-                break;
-
-            case 2:
-                $category = "Burger and sandwitches";
-                break;
-
-            case 3:
-                $category = "Cold Drinks";
-                break;
-
-            case 4:
-                $category = "Hot Drinks";
-                break;
-
-            case 5:
-                $category = "Premuim Coffee";
-                break;
-
-            case 6:
-                $category = "Fruit Shakes";
-                break;
-
-            case 0:
-                $category = "Fruit Shakes";
-                break;
-
-            default:
-            break;
-        }
-       return $category;
+        $categories = Category::where('category_id', $this->category)->get();
+        return $categories;
     }
     public function getPrice() {
         return $this->price;

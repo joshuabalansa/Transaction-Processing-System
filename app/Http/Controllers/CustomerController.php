@@ -3,26 +3,48 @@
 namespace App\Http\Controllers;
 use App\Models\Menu;
 use Illuminate\Http\Request;
-
+use App\Models\Category;
 class CustomerController extends Controller
 {
-    
-    public function index() {
-        $menus = Menu::all();
-        if($menus->isEmpty()) {
+    public $categories = [];
 
-            return view('customer.menu', ['menus' => $menus, 'isEmpty' => true]);
+    public function index() {
+
+        $menus = Menu::all();
+        $categories = Category::all();
+
+        if($menus->isEmpty()) {
+           $data = [
+                'menus' => $menus, 
+                'isEmpty' => true,
+                'categories' => $categories,
+            ];
         }
-        return view('customer.menu', ['menus' => $menus, 'isEmpty' => false]);
+        $data = [
+            'menus' => $menus,
+            'isEmpty' => false,
+            'categories' => $categories
+        ];
+        return view('customer.menu', $data);
     }
 
-    public function selectedCategory(int $categoryId) {
+    public function selectedCategory(string $categoryId) {
         
         $menus = ($categoryId === 0) ? Menu::all() : Menu::where('category', $categoryId)->get();
+        $categories = Category::all();
+        
         if ($menus->isEmpty()) {
-            return view('customer.menu', ['menus' => $menus, 'isEmpty' => true]);
+            return view('customer.menu', [
+                'menus' => $menus, 
+                'isEmpty' => true,
+                'categories' => $categories
+            ]);
         }
-        return view('customer.menu', ['menus' => $menus, 'isEmpty' => false]);
+        return view('customer.menu', [
+            'menus' => $menus,
+             'isEmpty' => false,
+             'categories' => $categories
+            ]);
     }
     public function checkout(Menu $menu) {
         

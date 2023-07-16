@@ -7,8 +7,8 @@
 </style>
 <div class="flex justify-center items-center p-2">
   <div class="flex justify-around w-full">
-      <img src="{{ asset('logo/logo.png') }}" class="h-10 mr-3" alt="Logo" />
-      <p class="text-4xl font-black text-gray-900 dark:text-white text-center">The Rabbit Hole</p>
+      <img src="{{ asset('logo/logo.png') }}" class="h-12 mr-3" alt="Logo" />
+      <p class="text-4xl font-black text-gray-900 dark:text-white text-center">The Rabbit Hole Cafe</p>
   <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
   <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
      View orders
@@ -18,13 +18,18 @@
 </div>
     <div class="flex items-center justify-center py-4 md:py-3 flex-wrap">
         <a href="{{ route('customer.index') }}" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800">All categories</a>
-        <a href="{{ route('menu.selectedCategory', 1) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Street Foods</a>
+        @foreach($categories as $category)
+        <a href="{{ route('menu.selectedCategory', $category->category_id) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">{{ $category->getCategoryName() }}</a>
+        @endforeach
+       {{-- <a href="{{ route('menu.selectedCategory', 1) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Street Foods</a>
         <a href="{{ route('menu.selectedCategory',2) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Burger and sandwiches</a>
         <a href="{{ route('menu.selectedCategory',3) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Cold Drinks</a>
         <a href="{{ route('menu.selectedCategory',4) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Hot Drinks</a>
         <a href="{{ route('menu.selectedCategory',5) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Premium Coffee</a>
         <a href="{{ route('menu.selectedCategory',6) }}" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Fruite Shakes</a>
+        --}}
     </div>
+   
     <div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-20">
     @if ($isEmpty)

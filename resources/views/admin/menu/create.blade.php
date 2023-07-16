@@ -31,18 +31,13 @@
       </div>
       @enderror
   <div>
-
   <div class="mb-6">
     <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
     <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
       <option value="" selected>Set Category</option>
-      <option value="1">Street food</option>
-      <option value="2">Burger and sandwitches</option>
-      <option value="3">Cold Drinks</option>
-      <option value="4">Hot Drinks</option>
-      <option value="5">Premium Coffee</option>
-      <option value="6">Fruit Shakes</option>
-      <option value="0">Others</option>
+      @foreach($categories as $category)
+      <option value="{{$category->category_id}}">{{ $category->getCategoryName() }}</option>
+      @endforeach
     </select>
   @error('category')
       <div class="flex mt-2 mb-4 text-sm text-red-800 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">

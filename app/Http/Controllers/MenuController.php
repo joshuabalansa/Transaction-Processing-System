@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Category;
 
 class MenuController extends Controller
 {
@@ -14,9 +15,7 @@ class MenuController extends Controller
     {
 
         $menus = Menu::paginate(10);
-        return view('admin.menu.index', [
-            'menus' => $menus
-        ]);
+        return view('admin.menu.index', compact('menus'));
     }
 
     /**
@@ -24,7 +23,8 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('admin.menu.create');
+        $categories = Category::all();
+        return view('admin.menu.create', compact('categories'));
     }
 
     /**
@@ -74,7 +74,8 @@ class MenuController extends Controller
     public function edit(Menu $menu)
     {
         $selectedCategory = $menu->category;
-        return view('admin.menu.edit', compact('menu', 'selectedCategory'));
+        $categories = Category::all();
+        return view('admin.menu.edit', compact('menu', 'selectedCategory', 'categories'));
     }
 
     /**

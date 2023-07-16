@@ -54,7 +54,9 @@
                 {{ $menu->getDescription() }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $menu->getCategory() }}
+                    @foreach($menu->getCategory() as $category)
+                        {{ $category['category'] }}
+                    @endforeach
                 </td>
                 <td class="px-6 py-4">
                 {{ $menu->getPrice() }}

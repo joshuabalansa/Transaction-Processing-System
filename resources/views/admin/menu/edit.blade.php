@@ -36,13 +36,9 @@
     <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
     <select name="category" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <option value="" {{ $selectedCategory == "" ? 'selected' : '' }}>Set Category</option>
-    <option value="1" {{ $selectedCategory == "1" ? 'selected' : '' }}>Street food</option>
-    <option value="2" {{ $selectedCategory == "2" ? 'selected' : '' }}>Burger and sandwiches</option>
-    <option value="3" {{ $selectedCategory == "3" ? 'selected' : '' }}>Cold Drinks</option>
-    <option value="4" {{ $selectedCategory == "4" ? 'selected' : '' }}>Hot Drinks</option>
-    <option value="5" {{ $selectedCategory == "5" ? 'selected' : '' }}>Premium Coffee</option>
-    <option value="6" {{ $selectedCategory == "6" ? 'selected' : '' }}>Fruit Shakes</option>
-    <option value="0" {{ $selectedCategory == "0" ? 'selected' : '' }}>Others</option>
+      @foreach($categories as $category)
+      <option value="{{$category->category_id}}">{{ $category->getCategoryName() }}</option>
+      @endforeach
     </select>
     @error('category')
       <div class="flex mt-2 mb-4 text-sm text-red-800 rounded-lg dark:bg-gray-800 dark:text-red-400" role="alert">

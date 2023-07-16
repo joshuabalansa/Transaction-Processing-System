@@ -17,6 +17,9 @@ Route::prefix('menu')->group(function() {
 // Menu Category Controller
 Route::prefix('category')->group(function() {
     Route::get('/', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+    Route::get('create', 'App\Http\Controllers\CategoryController@create')->name('category.create');
+    Route::post('store', 'App\Http\Controllers\CategoryController@store')->name('category.store');
+    Route::get('destroy/{category}', 'App\Http\Controllers\CategoryController@destroy')->name('category.destroy');
 });
 
 

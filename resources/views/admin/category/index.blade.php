@@ -20,7 +20,7 @@
 <h1 class="flex mb-5 items-center text-3xl font-extrabold dark:text-white">CATEGORIES</h1>
 <div class="p-2">
     <a href="{{ route('menu.index') }}" class="mb-px text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Back</a>
-
+    <a href="{{ route('category.create') }}" class="mb-px text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add</a>
 </div>
 <div class="relative overflow-x-auto  sm:rounded-lg p-5">
     
@@ -36,29 +36,28 @@
             </tr>
         </thead>
         <tbody>
-          
+          @foreach($categories as $category)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-4">
-               Foods
+               {{ $category->getCategoryName() }}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> |
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <a href="{{ route('category.destroy', $category->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                 </td>
             </tr>
-          
+          @endforeach
         </tbody>
         
     </table>
-    {{-- <center>
-       @if(count($menus) == 0)
+     <center>
+       @if(count($categories) == 0)
         <div class="p-5">
             There is no item in the list
         </div>
         @endif
-    </center> --}}
+    </center> 
 </div>
 <div class="mt-2">
-    {{-- $menus->links('pagination::tailwind') --}}
+    {{ $categories->links('pagination::tailwind') }}
 </div>
 @endsection
